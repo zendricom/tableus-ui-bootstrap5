@@ -30,7 +30,7 @@
     "react-bootstrap-icons": "^1.7.2",
     "react-dom": "^16.14.0",
     "stylelint-config-prettier": "^9.0.3",
-    "tableus": "https://github.com/zendricom/tableus.git#main",
+    "tableus": "0.0.1",
     "typescript": "^4.7.0-beta"
   },
   "peerDependencies": {
@@ -41,6 +41,6 @@
     "react-bootstrap": ">=2.1",
     "react-bootstrap-icons": ">=1.7",
     "react-dom": ">=16.0",
-    "tableus": "https://github.com/zendricom/tableus.git#main"
+    "tableus": ">=0.0.1"
   }
 }
