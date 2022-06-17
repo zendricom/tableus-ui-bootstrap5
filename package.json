@@ -1,14 +1,14 @@
 {
   "name": "tableus-ui-bootstrap5",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "A Bootstrap 5 UI for tableus.",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch"
+    "build": "cp ./src/styles.css ./dist/ && tsc",
+    "watch": "cp ./src/styles.css ./dist/ && tsc --watch"
   },
   "keywords": [
     "tableus",
