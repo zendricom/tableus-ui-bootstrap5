@@ -1,4 +1,4 @@
-import "./bootstrap5.css";
+import "./styles.css";
 
 import React from "react";
 import { SortUp, SortDown } from "react-bootstrap-icons";
