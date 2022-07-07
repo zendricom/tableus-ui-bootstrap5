@@ -7,7 +7,7 @@ import {
   HeaderProps,
   TableComponentProps,
   TableUI,
-} from "tableus/dist/context";
+} from "@tableus/core/dist/context";
 import { Pagination } from "./pagination";
 import { SearchFilter, SelectFilter } from "./filtering";
 

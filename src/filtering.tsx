@@ -6,14 +6,14 @@ import {
   FormControl,
   InputGroup,
 } from "react-bootstrap";
-import { FilterProps } from "tableus/dist/context";
+import { FilterProps } from "@tableus/core/dist/context";
 import {
   SearchFilterDef,
   SearchFilterState,
   SelectFilterDef,
   SelectFilterState,
-} from "tableus/dist/filtering";
-import { useDebouncedCallback } from "tableus/dist/helpers";
+} from "@tableus/core/dist/filtering";
+import { useDebouncedCallback } from "@tableus/core/dist/helpers";
 
 export const SelectFilter = ({
   filterDefinition,

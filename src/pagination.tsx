@@ -1,4 +1,4 @@
-import { PaginationProps } from "tableus/dist/context";
+import { PaginationProps } from "@tableus/core/dist/context";
 import React from "react";
 import { Pagination as BootstrapPagination } from "react-bootstrap";
 
