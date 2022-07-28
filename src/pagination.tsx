@@ -26,6 +26,8 @@ export function Pagination({
   for (let i = sliderMin; i <= sliderMax; i++) {
     slider.push(i);
   }
+  // const canNextPage = getCanNextPage(); broken atm
+  const canNextPage = pageIndex < pageCount - 1;
 
   return (
     <div className="bs5-pagination-wrapper">
@@ -62,7 +64,7 @@ export function Pagination({
             </BootstrapPagination.Item>
           )}
           <BootstrapPagination.Next
-            disabled={!getCanNextPage()}
+            disabled={!canNextPage}
             onClick={nextPage}
           />
         </BootstrapPagination>
