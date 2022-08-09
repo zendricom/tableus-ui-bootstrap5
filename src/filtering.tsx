@@ -3,11 +3,14 @@ import {
   ButtonGroup,
   Dropdown,
   DropdownButton,
+  Form,
   FormControl,
   InputGroup,
 } from "react-bootstrap";
 import { FilterProps } from "@tableus/core/dist/context";
 import {
+  CheckFilterDef,
+  CheckFilterState,
   SearchFilterDef,
   SearchFilterState,
   SelectFilterDef,
@@ -77,7 +80,9 @@ export const SearchFilter = ({
   setFilter,
   props,
 }: FilterProps<SearchFilterState, SearchFilterDef>) => {
-  const [value, setValue] = useState(filter?.value || "");
+  const [value, setValue] = useState(
+    filter?.value ?? filterDefinition.defaultValue ?? ""
+  );
   const debouncedSetFilter = useDebouncedCallback(setFilter, 500);
   useEffect(() => {
     debouncedSetFilter(value);
@@ -93,5 +98,23 @@ export const SearchFilter = ({
         placeholder={filterDefinition.placeholder}
       />
     </InputGroup>
+  );
+};
+
+export const CheckFilter = ({
+  filterDefinition,
+  filter,
+  setFilter,
+  props,
+}: FilterProps<CheckFilterState, CheckFilterDef>) => {
+  return (
+    <Form.Group controlId={filterDefinition.key} {...props}>
+      <Form.Check
+        type="checkbox"
+        label={filterDefinition.label}
+        onChange={() => setFilter(!filter?.value)}
+        checked={filter?.value ?? filterDefinition.defaultValue ?? false}
+      />
+    </Form.Group>
   );
 };

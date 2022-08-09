@@ -9,7 +9,7 @@ import {
   TableUI,
 } from "@tableus/core/dist/context";
 import { Pagination } from "./pagination";
-import { SearchFilter, SelectFilter } from "./filtering";
+import { CheckFilter, SearchFilter, SelectFilter } from "./filtering";
 
 const DEFAULT_EMPTY_VALUE = "-";
 
@@ -92,5 +92,6 @@ export function initTableComponents(configArg: Partial<Config>): TableUI {
 
     SelectFilter: SelectFilter,
     SearchFilter: SearchFilter,
+    CheckFilter: CheckFilter,
   };
 }
