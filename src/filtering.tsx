@@ -33,7 +33,7 @@ export const SelectFilter = ({
   const id = `tableus-filter-${filterDefinition.key}`;
 
   return (
-    <div className="dropdown">
+    <div className="btn-group">
       <button
         className={
           "btn btn-secondary dropdown-toggle" +
@@ -44,7 +44,7 @@ export const SelectFilter = ({
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Dropdown button
+        {filterDefinition.label}
       </button>
       <ul className="dropdown-menu" aria-labelledby={id}>
         {filterDefinition.options.map((option) => {
