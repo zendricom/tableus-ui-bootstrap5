@@ -30,47 +30,67 @@ export const SelectFilter = ({
       ? (filter?.value as string[] | undefined)?.includes(option.value)
       : filter?.value === option.value
   );
+  const id = `tableus-filter-${filterDefinition.key}`;
 
   return (
-    <DropdownButton
-      title={filterDefinition.label}
-      variant="secondary"
-      as={ButtonGroup}
-      {...props}
-    >
-      {filterDefinition.options.map((option) => {
-        const isActive = activeOptions.includes(option);
-        const handleClick = () => {
-          if (!isMulti) {
-            setFilter(option.value);
-            return;
-          }
-          setFilter((prev) =>
-            isActive
-              ? (prev as string[]).filter((o) => o !== option.value)
-              : [...(prev ? prev : []), option.value]
-          );
-        };
-
-        return (
-          <Dropdown.Item
-            active={isActive}
-            key={option.value}
-            onClick={handleClick}
-          >
-            {option.label}
-          </Dropdown.Item>
-        );
-      })}
-
-      <Dropdown.Divider />
-      <Dropdown.Item
-        onClick={() => setFilter(isMulti ? [] : "")}
-        active={activeOptions.length === 0}
+    <div className="dropdown">
+      <button
+        className={
+          "btn btn-secondary dropdown-toggle" +
+          (activeOptions.length > 0 ? " active" : "")
+        }
+        type="button"
+        id={id}
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
       >
-        Keine Filterung
-      </Dropdown.Item>
-    </DropdownButton>
+        Dropdown button
+      </button>
+      <ul className="dropdown-menu" aria-labelledby={id}>
+        {filterDefinition.options.map((option) => {
+          const isActive = activeOptions.includes(option);
+          const handleClick = () => {
+            if (!isMulti) {
+              setFilter(option.value);
+              return;
+            }
+            setFilter((prev) =>
+              isActive
+                ? (prev as string[]).filter((o) => o !== option.value)
+                : [...(prev ? prev : []), option.value]
+            );
+          };
+
+          const className = "dropdown-item" + (isActive ? " active" : "");
+          return (
+            <li>
+              <a
+                className={className}
+                href="#"
+                onClick={handleClick}
+                key={option.value}
+              >
+                {option.label}
+              </a>
+            </li>
+          );
+        })}
+        <li>
+          <hr className="dropdown-divider" />
+        </li>
+        <li>
+          <a
+            className={
+              "dropdown-item" + (activeOptions.length === 0 ? " active" : "")
+            }
+            href="#"
+            onClick={() => setFilter(isMulti ? [] : "")}
+          >
+            Keine Filterung
+          </a>
+        </li>
+      </ul>
+    </div>
   );
 };
 
