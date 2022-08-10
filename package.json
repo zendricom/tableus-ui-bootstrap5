@@ -1,6 +1,6 @@
 {
   "name": "@tableus/ui-bootstrap5",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A Bootstrap 5 UI for tableus.",
   "main": "dist/index.js",
   "files": [
