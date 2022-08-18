@@ -62,6 +62,13 @@ export const SelectFilter = ({
     elementRef.current.hide();
   };
 
+  const toggleDropdown = () => {
+    if (!elementRef.current) {
+      return;
+    }
+    elementRef.current.toggle();
+  };
+
   return (
     <div className="btn-group" role="group">
       <button
@@ -73,7 +80,7 @@ export const SelectFilter = ({
         id={id}
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        onClick={openDropdown}
+        onClick={toggleDropdown}
       >
         {filterDefinition.label}
       </button>
