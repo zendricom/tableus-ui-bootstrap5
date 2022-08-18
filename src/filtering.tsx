@@ -49,24 +49,11 @@ export const SelectFilter = ({
     elementRef.current = initBootstrapDropdown(id);
   }, [id]);
 
-  const openDropdown = () => {
-    if (!elementRef.current) {
-      return;
-    }
-    elementRef.current.show();
-  };
   const closeDropdown = () => {
     if (!elementRef.current) {
       return;
     }
     elementRef.current.hide();
-  };
-
-  const toggleDropdown = () => {
-    if (!elementRef.current) {
-      return;
-    }
-    elementRef.current.toggle();
   };
 
   return (
@@ -80,7 +67,6 @@ export const SelectFilter = ({
         id={id}
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        onClick={toggleDropdown}
       >
         {filterDefinition.label}
       </button>
